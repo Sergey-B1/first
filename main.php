@@ -29,9 +29,10 @@ $files = scandir($dir, 0);
 
 $open = $_GET['open'];
 define("DIR", "upload/");
-function open(){
+function open($open){
       if (file_exists(DIR.$open))
-      {$fileopen = file_get_contents(DIR.$open);}
+      {return file_get_contents(DIR.$open);
+      }
       else {
         echo "Ошибка открытия файла";
       };
@@ -40,14 +41,14 @@ function open(){
 
 
 $delete = $_GET['delete'];
-  function delete(){
+  function delete($delete){
         if (file_exists(DIR.$delete))
         { unlink(DIR.$delete);
         } else {
           echo "Ошибка";
         };
       }
-delete();
+delete($delete);
 
 /*
 $_POST['file'];

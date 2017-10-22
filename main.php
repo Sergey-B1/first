@@ -28,32 +28,56 @@ upload();
 $files = scandir($dir, 0);
 
 $open = $_GET['open'];
-define("DIR", "upload/");
-function open($open){
-      if (file_exists(DIR.$open))
-      {return file_get_contents(DIR.$open);
+  define("DIR", "upload/");
+  function open($open){
+        if (file_exists(DIR.$open))
+        {echo file_get_contents(DIR.$open);
+        }
+        else {
+          echo "Ошибка открытия файла";
+        };
       }
-      else {
-        echo "Ошибка открытия файла";
-      };
-    }
-
 
 
 $delete = $_GET['delete'];
   function delete($delete){
         if (file_exists(DIR.$delete))
         { unlink(DIR.$delete);
+          echo "Файл успешно удалён";
         } else {
           echo "Ошибка";
         };
       }
-delete($delete);
 
-/*
-$_POST['file'];
-$fopen = fopen($_GET['open'], 'a+') or die("Не удалось открыть файл");*/
-//fwrite($fopen, '');
-//fclose($fopen);
+$newfilename = $_POST['newfilename'];
+$open2 = $_POST['open2'];
+
+  function newfilename($open2, $newfilename){
+    if ($newfilename == $open2){
+      rename($open2, $newfilename);
+    } else {
+      echo "Файл с таким именем уже существует";
+    };
+  }
+newfilename($open2, $newfilename);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

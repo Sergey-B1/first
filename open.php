@@ -8,23 +8,13 @@
 </head>
 <body>
 
-<?  $open = $_GET['open'];
-  define("DIR", "upload/");
-  function open($open){
-        if (file_exists(DIR.$open))
-        {file_get_contents(DIR.$open);
-        }
-        else {
-          echo "Ошибка открытия файла";
-        };
-      }
 
-       ?>
-<form action="" method="post">
- <p>Режим просмотра <br><? /*include 'main.php';*/ echo $open ?></p>
-<textarea><? /*include 'main.php';*/ open($open) ?></textarea>
- <p><input type="submit" /></p>
+<form action="index.php" method="post">
+ <p>Режим просмотра <br><? require_once 'main.php'; echo $open; ?></p>
+<textarea><? require_once 'main.php'; open($open); ?></textarea>
+ <p><input type="submit" value="На главную"/></p>
 </form>
+
 
  </body>
 </html>

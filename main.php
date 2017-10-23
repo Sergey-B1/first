@@ -41,36 +41,20 @@ $open = $_GET['open'];
 
 $delete = $_GET['delete'];
   function delete($delete){
-        if (file_exists(DIR.$delete))
-        { unlink(DIR.$delete);
-          echo "Файл успешно удалён";
-        } else {
-          echo "Ошибка";
-        };
+        if (file_exists(DIR.$delete)){
+          unlink(DIR.$delete);
+        }; 
       }
 
+$edit = $_GET['edit'];
 $newfilename = $_POST['newfilename'];
-$open2 = $_POST['open2'];
-
-  function newfilename($open2, $newfilename){
-    if ($newfilename == $open2){
-      rename($open2, $newfilename);
-    } else {
-      echo "Файл с таким именем уже существует";
-    };
-  }
-newfilename($open2, $newfilename);
-
-
-
-
-
-
-
-
-
-
-
+function edit($edit, $newfilename){
+  if (file_exists(DIR.$edit) && $edit != $newfilename){
+    rename(DIR.$edit, DIR.$newfilename);
+  } else {
+    echo "Возможно, файл с таким именем уже существует";
+  };
+}
 
 
 

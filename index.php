@@ -10,7 +10,7 @@
 <body>
   <form action="main.php" method="post" enctype="multipart/form-data">
     <input type="file" name="file"><br/>
-    <input type="submit" value="Загрузить с диска">
+    <input type="submit" value="Загрузить">
   </form>
   <div class="">
   <?php include 'main.php';
@@ -18,7 +18,7 @@
       foreach ($files as $value):?>
         <div><a href='open.php?open=<?= $value ?>'><?= $value ?></a></div>
         <div><a href='edit.php?edit=<?= $value ?>'>Редактировать</a></div>
-        <div><a href='delete.php?delete=<?= $value ?>&open2=<?= $value ?>'>Удалить</a></div>
+        <div><a href='delete.php?delete=<?= $value ?> '>Удалить</a></div>
         <br>
 <? endforeach ?>
   </div>

@@ -7,18 +7,26 @@
   <title>Просмотр</title>
 </head>
 <body>
-  <p>Изменение файла </p><br>
-  <p><? require_once 'main.php'; echo $open2; ?></p>
+
+<? $edit = $_GET['edit'] ?>
+  <p>Изменение файла </p>
+  <p><? echo $edit ?></p>
+
+ <p>Введите новое имя файла </p>
+ <form action="main.php" method="post">
+ <input type="text" name="newfilename"> <br>
+ <input type="submit" value="Изменить"/>
+ </form>
+
 
 <form action="main.php" method="post">
- <p>Введите новое имя файла </p>
- <input type="text" name="newfilename"> <br>
-<textarea><? require_once 'main.php'; open($open2) ?></textarea>
-<p><input type="submit" value="Изменить"/></p>
+<textarea><? require_once 'main.php'; open($edit) ?></textarea>
+<input type="submit" value="Изменить"/>
 </form>
 
+
 <form action="index.php" method="post">
-  <p><input type="submit" value="На главную"/></p>
+<input type="submit" value="На главную"/>
 </form>
 
  </body>

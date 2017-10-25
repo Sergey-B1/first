@@ -48,6 +48,8 @@ $delete = $_GET['delete'];
       }
 
 // Переименование имени файла из OldName в NewName
+
+
 $OldName = $_POST['OldName'];
 $NewName = $_POST['NewName'];
 
@@ -70,13 +72,15 @@ if (!name_error ($OldName, $NewName)){
 // Изменение содержимого файла OldName2 (равно OldName) в $NewContent
 $NewContent = $_POST['NewContent'];
 $OldName2 = $_POST['OldName2'];
+if(!isset($OldName2, $NewContent)) {return false;}
  function content_edit($OldName2, $NewContent){
    file_put_contents(DIR.$OldName2, $NewContent);
  }
+
 content_edit($OldName2, $NewContent);
 
 
-
+// Создание нового файла с именем NewFileName и содержимым NewFileContent вручную
 
 
 

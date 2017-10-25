@@ -27,11 +27,12 @@ upload();
 
 $files = scandir($dir, 0);
 
-$open = $_GET['open'];
+// Открытие файла $OpenFile
+$OpenFile = $_GET['open'];
   define("DIR", "upload/");
-  function open($open){
-        if (file_exists(DIR.$open))
-        {echo file_get_contents(DIR.$open);
+  function open($OpenFile){
+        if (file_exists(DIR.$OpenFile))
+        {echo file_get_contents(DIR.$OpenFile);
         }
         else {
           echo "Ошибка открытия файла";
@@ -43,18 +44,39 @@ $delete = $_GET['delete'];
   function delete($delete){
         if (file_exists(DIR.$delete)){
           unlink(DIR.$delete);
-        }; 
+        };
       }
 
-$edit = $_GET['edit'];
-$newfilename = $_POST['newfilename'];
-function edit($edit, $newfilename){
-  if (file_exists(DIR.$edit) && $edit != $newfilename){
-    rename(DIR.$edit, DIR.$newfilename);
-  } else {
-    echo "Возможно, файл с таким именем уже существует";
+// Переименование имени файла из OldName в NewName
+$OldName = $_POST['OldName'];
+$NewName = $_POST['NewName'];
+
+function name_error($OldName, $NewName){
+  if (file_exists(DIR.$OldName) && $OldName == $NewName) {
+  echo "Файл с таким именем уже существует";
+};
+}
+
+function name_edit($OldName, $NewName){
+  if (file_exists(DIR.$OldName) && $OldName != $NewName){
+    rename(DIR.$OldName, DIR.$NewName);
   };
 }
+
+if (!name_error ($OldName, $NewName)){
+  name_edit($OldName, $NewName);
+}
+
+// Изменение содержимого файла OldName2 (равно OldName) в $NewContent
+$NewContent = $_POST['NewContent'];
+$OldName2 = $_POST['OldName2'];
+ function content_edit($OldName2, $NewContent){
+   file_put_contents(DIR.$OldName2, $NewContent);
+ }
+content_edit($OldName2, $NewContent);
+
+
+
 
 
 

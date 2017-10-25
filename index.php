@@ -13,7 +13,7 @@
     <input type="submit" value="Загрузить">
   </form>
   <div class="">
-  <?php include 'main.php';
+  <?php require_once 'main.php';
      unset($files[0], $files[1]);
       foreach ($files as $value):?>
         <div><a href='open.php?open=<?= $value ?>'><?= $value ?></a></div>

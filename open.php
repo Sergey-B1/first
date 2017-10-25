@@ -7,11 +7,10 @@
   <title>Просмотр</title>
 </head>
 <body>
-
-
+<? require_once 'main.php'; ?>
 <form action="index.php" method="post">
- <p>Режим просмотра <br><? require_once 'main.php'; echo $open; ?></p>
-<textarea><? require_once 'main.php'; open($open); ?></textarea>
+ <p>Режим просмотра <br><? echo $OpenFile; ?></p>
+<textarea rows="10" cols="20" ><? open($OpenFile); ?></textarea>
  <p><input type="submit" value="На главную"/></p>
 </form>
 

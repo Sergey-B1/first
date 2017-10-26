@@ -1,6 +1,6 @@
 ﻿<?php
+require_once 'functions.php';
 mb_internal_encoding("UTF-8");
-
 // Для загрузки файла с диска
 $file = $_FILES['file'];
 $dir = 'upload';

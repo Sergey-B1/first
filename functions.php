@@ -1,5 +1,5 @@
 <?php
-require_once 'main.php';
+//require_once 'main.php';
 // Функция для загрузки файла с диска
 function upload(){
   $file = $_FILES['file'];
@@ -26,7 +26,7 @@ function open($OpenFile){
 function file_delete($delete){
         if (!isset($delete)){
         return false;
-        };
+        }
         if (file_exists(DIR.$delete)){
         unlink(DIR.$delete);
         };

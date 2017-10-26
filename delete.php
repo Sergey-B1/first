@@ -1,23 +1,21 @@
+<?php require_once 'main.php';
+ $delete = $_GET['delete'];?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Просмотр</title>
+  <title>Предупреждение</title>
 </head>
 <body>
-<? require_once 'main.php'; ?>
-<form action="main.php" method="post">
- <p>Вы действительно хотите удалить файл <? echo $delete; ?>?</p> <br>
-</form>
 
-<form action="index.php" method="post">
-<p><input type="submit" value="Нет"/></p>
-</form>
-
-<form action="main.php" method="post">
- <p><input type="submit" value="Да<? delete($delete); ?>"/></p>
+<form action="controller.php" method="post">
+  <p>Вы действительно хотите удалить файл <? echo $delete; ?>?</p> <br>
+     <input type="hidden" value="<? echo $delete; ?>" name="delete"/>
+  <p><input type="submit" value="Нет" name="delete_no"/></p>
+  <p><input type="submit" value="Да" name="delete_yes"/></p>
 </form>
 
  </body>

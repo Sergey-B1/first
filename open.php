@@ -1,3 +1,5 @@
+<?php require_once 'main.php';
+   $FileOpen = $_GET['open']; ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,11 +9,12 @@
   <title>Просмотр</title>
 </head>
 <body>
-<? require_once 'main.php'; ?>
-<form action="index.php" method="post">
- <p>Режим просмотра <br><? echo $OpenFile; ?></p>
-<textarea rows="10" cols="20" ><? open($OpenFile); ?></textarea>
- <p><input type="submit" value="На главную"/></p>
+
+ <form action="controller.php" method="post">
+   <p>Режим просмотра <br>
+   <?php echo $FileOpen; ?> </p>
+     <textarea rows="10" cols="20" ><?php file_open($FileOpen); ?></textarea>
+   <p><input type="submit" value="На главную" name="return"/></p>
 </form>
 
 

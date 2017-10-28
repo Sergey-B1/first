@@ -1,3 +1,4 @@
+  <?php require_once 'main.php';?>.
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,23 +9,19 @@
 </head>
 <link rel="stylesheet" href="./index.css">
 <body>
-  <form action="main.php" method="post" enctype="multipart/form-data">
+  <form action="controller.php" method="post" enctype="multipart/form-data">
     <input type="file" name="file"><br/>
-    <input type="submit" value="Загрузить">
+    <input type="submit" value="Загрузить" name="download">
   </form>
-
-<!--  <form action="create.php" method="post">
-    <input type="submit" value="Создать файл вручную">
-  </form> -->
-
   <div class="">
-  <?php require_once 'main.php';
-     unset($files[0], $files[1]);
+  <?php
+   unset($files[0], $files[1]);
       foreach ($files as $value) {?>
-        <div><a href='open.php?open=<?= $value ?>'><?= $value ?></a></div>
-        <div><a href='edit.php?edit=<?= $value ?>'>Редактировать</a></div>
-        <div><a href='delete.php?delete=<?= $value ?>'>Удалить</a></div>
+        <div><a href='open.php?open=<?php echo $value ?>'><?php echo $value ?></a></div>
+        <div><a href='edit.php?edit=<?php echo $value ?>'>Редактировать</a></div>
+        <div><a href='delete.php?delete=<?php echo $value ?>'>Удалить</a></div>
         <br>
+
 <?php } ?>
   </div>
 

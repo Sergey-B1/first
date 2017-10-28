@@ -1,5 +1,5 @@
 <?php require_once 'main.php';
- $delete = $_GET['delete'];?>
+ $FileDelete = $_GET['delete'];?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -12,8 +12,8 @@
 <body>
 
 <form action="controller.php" method="post">
-  <p>Вы действительно хотите удалить файл <? echo $delete; ?>?</p> <br>
-     <input type="hidden" value="<? echo $delete; ?>" name="delete"/>
+  <p>Вы действительно хотите удалить файл <?php echo $FileDelete; ?>?</p> <br>
+     <input type="hidden" value="<?php echo $FileDelete; ?>" name="FileDelete"/>
   <p><input type="submit" value="Нет" name="delete_no"/></p>
   <p><input type="submit" value="Да" name="delete_yes"/></p>
 </form>

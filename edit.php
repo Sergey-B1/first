@@ -1,3 +1,6 @@
+<?php require_once 'main.php';
+$OldName = $_GET['edit'];
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,26 +10,27 @@
   <title>Просмотр</title>
 </head>
 <body>
-<? require_once 'main.php'; ?>
-<? $OldName = $_GET['edit']; ?>
+
   <p>Изменение файла </p>
-  <p><? echo $OldName; ?></p>
+  <p><?php echo $OldName; ?></p>
 
  <p>Здесь можно изменить имя файла </p>
- <form action="main.php" method="post">
- <input type="hidden" name="OldName" value="<? echo $OldName; ?>">
+ <form action="controller.php" method="post">
+ <input type="hidden" name="OldName" value="<?php echo $OldName; ?>">
  <input type="text" name="NewName"> <br>
- <input type="submit" value="Изменить"/>
+ <input type="submit" value="Изменить" name="name_edit_yes"/>
  </form>
 
  <p>Здесь можно изменить содержимое файла</p>
- <form action="main.php" method="post">
- <input type="hidden" name="OldName2" value="<? echo $OldName; ?>">
- <textarea rows="5" cols="15" name="NewContent"><? echo file_get_contents(DIR.$OldName); ?></textarea><br>
- <input type="submit" value="Изменить"/>
+ <form action="controller.php" method="post">
+ <input type="hidden" name="OldName2" value="<?php echo $OldName; ?>">
+ <textarea rows="5" cols="15" name="NewContent"><?php echo file_get_contents(DIR.$OldName); ?></textarea><br>
+ <input type="submit" value="Изменить" name="content_edit_yes"/>
  </form>
 
-
+ <form action="index.php" method="post">
+ <input type="submit" value="Отмена"/>
+ </form>
 
 
  </body>

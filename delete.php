@@ -7,15 +7,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.css">
   <title>Предупреждение</title>
 </head>
 <body>
 
-<form action="controller.php" method="post">
-  <p>Вы действительно хотите удалить файл <?php echo $FileDelete; ?>?</p> <br>
+<form class="form-group" action="controller.php" method="post">
+  <div style="width:300px; margin:auto"><p>Вы действительно хотите удалить файл <?php echo $FileDelete; ?>?</p></div>
      <input type="hidden" value="<?php echo $FileDelete; ?>" name="FileDelete"/>
-  <p><input type="submit" value="Нет" name="delete_no"/></p>
-  <p><input type="submit" value="Да" name="delete_yes"/></p>
+     <div style="width:150px; margin:auto">
+       <input class="btn btn-primary" type="submit" value="Нет" name="delete_no"/>
+       <input style="background-color:red; border-color:red" class="btn btn-primary" type="submit" value="Да" name="delete_yes"/>
+    </div>
 </form>
 
  </body>

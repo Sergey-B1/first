@@ -47,6 +47,6 @@ if (isset($_POST['OldName2']) && isset($_POST['NewContent'])){
 // Для загрузки файла
 if (isset($_FILES['file'])){
   $file = $_FILES['file'];
-  file_upload(file_upload($file));
+  file_upload($file);
   exit;
 }

@@ -15,7 +15,7 @@ function file_upload($file){
         </form>
       </div>
     </p>";
-};
+  };
 }
 // Функция для открытия файла
 function file_open($FileOpen){

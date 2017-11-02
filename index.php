@@ -10,12 +10,14 @@
 </head>
 <body>
 <div style="width:600px; margin:auto">
-    <div style="width:200px; margin:auto"><h3><span>Библиотека</span></h3></div>
+    <div style="width:180px; margin:auto"><h3><span>Библиотека</span></h3></div>
     <form style="width:400px; margin:auto" action="controller.php" method="post" enctype="multipart/form-data">
-      <input class="" type="file" name="file">
-      <input class="btn btn-outline-success" type="submit" value="Загрузить" name="download">
+      <input type="file" name="file">
+      <input style="background-color:gray; border-color:gray" class="btn btn-primary" type="submit" value="Загрузить" name="download">
     </form>
-    <div >
+
+
+    <div>
     <?php
      unset($files[0], $files[1]);
         foreach ($files as $value) {?>

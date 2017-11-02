@@ -8,30 +8,35 @@ $OldName = $_GET['edit'];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Просмотр</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-
-  <p>Изменение файла </p>
-  <p><?php echo $OldName; ?></p>
+<div style="width:500px; margin:auto">
+  <div class="item"><h3>Изменение файла</h3></div>
+  <div class="file-name"><p><?php echo $OldName; ?></p></div>
 
  <p>Здесь можно изменить имя файла </p>
- <form action="controller.php" method="post">
- <input type="hidden" name="OldName" value="<?php echo $OldName; ?>">
- <input type="text" name="NewName"> <br>
- <input type="submit" value="Изменить" name="name_edit_yes"/>
- </form>
+ <div class="form-group">
+   <form action="controller.php" method="post">
+   <input type="hidden" name="OldName" value="<?php echo $OldName; ?>">
+   <input class="form-control" type="text" name="NewName"> <br>
+   <input class="btn btn-primary" type="submit" value="Изменить" name="name_edit_yes"/>
+   </form>
+ </div>
 
  <p>Здесь можно изменить содержимое файла</p>
- <form action="controller.php" method="post">
- <input type="hidden" name="OldName2" value="<?php echo $OldName; ?>">
- <textarea rows="5" cols="15" name="NewContent"><?php echo file_get_contents(DIR.$OldName); ?></textarea><br>
- <input type="submit" value="Изменить" name="content_edit_yes"/>
- </form>
+ <div class="form-group">
+   <form action="controller.php" method="post">
+   <input type="hidden" name="OldName2" value="<?php echo $OldName; ?>">
+   <textarea class="form-control" name="NewContent"><?php echo file_get_contents(DIR.$OldName); ?></textarea><br>
+   <input class="btn btn-primary" type="submit" value="Изменить" name="content_edit_yes"/>
+   </form>
+</div>
 
  <form action="index.php" method="post">
- <input type="submit" value="Отмена"/>
+ <input class="btn btn-primary" type="submit" value="Отмена"/>
  </form>
 
-
+</div>
  </body>
 </html>
